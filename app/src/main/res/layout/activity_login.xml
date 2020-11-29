@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 <!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
 <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
 <!--    xmlns:tools="http://schemas.android.com/tools">-->
 
-<!--    <data>-->
-<!--        <variable-->
-<!--            name="viewModel"-->
-<!--            type="hu.unideb.shoppinglist.LoginViewModel" />-->
-<!--    </data>-->
+    <data>
+        <variable
+            name="viewModel"
+            type="hu.unideb.shoppinglist.LoginViewModel" />
+    </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -93,7 +91,6 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress3"
         app:layout_constraintVertical_bias="0.0" />
     <!--        android:onClick="@{() -> viewModel.goToHomePage()}"-->
-
     <Button
         android:id="@+id/button2"
         android:layout_width="0dp"
@@ -103,7 +100,10 @@
         android:layout_marginEnd="60dp"
         android:layout_marginRight="60dp"
         android:text="Bejeletkezés"
-android:onClick="goToHome"
+        android:onClick="@{(view) -> viewModel.goToHomePage(view)}"
+
+
+
         app:layout_constraintBottom_toBottomOf="parent"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -122,4 +122,4 @@ android:onClick="goToHome"
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--</layout>-->
+</layout>

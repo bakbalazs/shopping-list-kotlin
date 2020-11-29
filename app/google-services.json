@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1012228379729",
+    "firebase_url": "https://shopping-list-kotlin.firebaseio.com",
+    "project_id": "shopping-list-kotlin",
+    "storage_bucket": "shopping-list-kotlin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012228379729:android:016fcdf886bc2cec1a1470",
+        "android_client_info": {
+          "package_name": "hu.unideb.shoppinglist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1012228379729-tq5vm3pijjt9o8n632n2p0g0mll87kmo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hu.unideb.shoppinglist",
+            "certificate_hash": "77080d1588ac2376b6442d688d83942e522f1ece"
+          }
+        },
+        {
+          "client_id": "1012228379729-mg96e65am4leaoa5g3gktk5uakvj6itt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5h5_wqlfHGayI-8z3vzOb1Y2RCGXPP9I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1012228379729-mg96e65am4leaoa5g3gktk5uakvj6itt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
