@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import hu.unideb.shoppinglist.R
 
-class HomeFragment : Fragment(){
+class HomeFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
