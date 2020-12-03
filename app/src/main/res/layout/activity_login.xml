@@ -6,7 +6,7 @@
     <data>
         <variable
             name="loginViewModel"
-            type="hu.unideb.shoppinglist.LoginViewModel" />
+            type="hu.unideb.shoppinglist.login.LoginViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -63,14 +63,14 @@
         android:ems="10"
         android:hint="E-mail"
         android:inputType="textEmailAddress"
-        android:text="@={loginViewModel.email}"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.024" />
-
+<!--    !&#45;&#45;        android:text="@={loginViewModel.email}"&ndash;&gt;-->
     <EditText
         android:id="@+id/editTextTextPassword3"
         android:layout_width="0dp"
@@ -83,7 +83,6 @@
         android:ems="10"
         android:hint="Jelszó"
         android:inputType="textPassword"
-        android:text="@={loginViewModel.password}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -91,6 +90,8 @@
         app:layout_constraintTop_toBottomOf="@+id/email_edit"
         app:layout_constraintVertical_bias="0.0" />
     <!--        android:onClick="@{() -> viewModel.goToHomePage()}"-->
+<!--    android:text="@={loginViewModel.password}"-->
+<!--    android:onClick="@{() -> loginViewModel.login()}"-->
     <Button
         android:id="@+id/button2"
         android:layout_width="0dp"
@@ -100,23 +101,31 @@
         android:layout_marginEnd="60dp"
         android:layout_marginRight="60dp"
         android:text="Bejeletkezés"
-        android:onClick="@{(view) -> loginViewModel.login(view)}"
-
-
 
         app:layout_constraintBottom_toBottomOf="parent"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword3"
         app:layout_constraintVertical_bias="0.255" />
+<!--    android:onClick="@{() -> loginViewModel.login()}"-->
+    <!--    android:text="@={loginViewModel.errorMessage}"-->
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:text="Uj"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@={loginViewModel.errorMessage}"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
