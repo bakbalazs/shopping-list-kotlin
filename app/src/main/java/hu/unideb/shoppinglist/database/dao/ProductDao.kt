@@ -1,5 +1,6 @@
 package hu.unideb.shoppinglist.database.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -13,5 +14,5 @@ interface ProductDao {
     suspend fun insert(product: Product)
 
     @Query("SELECT * FROM product")
-    fun getAllProducts(): List<Product>
+    fun getAllProducts(): LiveData<List<Product>>
 }

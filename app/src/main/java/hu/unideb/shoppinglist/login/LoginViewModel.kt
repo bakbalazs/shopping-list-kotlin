@@ -2,19 +2,18 @@ package hu.unideb.shoppinglist.login
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
-import hu.unideb.shoppinglist.database.model.Product
 
 class LoginViewModel() : ViewModel() {
-    var liveDataLogin: List<Product>? = null
-
+//    var liveDataLogin: LiveData<List<Product>>? = null
+//
     fun insert(context: Context, productName: String) {
         LoginRepository.insertData(context, productName)
     }
-
-    fun getAll(context: Context): List<Product>? {
-        liveDataLogin = LoginRepository.getLoginDetails(context)
-        return liveDataLogin
-    }
+//
+//    fun getAll(context: Context): LiveData<List<Product>>? {
+//        liveDataLogin = LoginRepository.getLoginDetails(context)
+//        return liveDataLogin
+//    }
 
 //    private val products = database.getAllProducts()
 

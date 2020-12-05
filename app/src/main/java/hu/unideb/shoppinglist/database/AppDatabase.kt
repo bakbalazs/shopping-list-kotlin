@@ -29,7 +29,7 @@ abstract class AppDatabase : RoomDatabase() {
                         "shopping_list_database"
                     )
                         .fallbackToDestructiveMigration()
-                        .allowMainThreadQueries()
+
                         .build()
                     INSTANCE = instance
                 }
@@ -38,3 +38,4 @@ abstract class AppDatabase : RoomDatabase() {
         }
     }
 }
+//.allowMainThreadQueries()

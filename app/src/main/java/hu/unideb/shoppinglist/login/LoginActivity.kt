@@ -1,11 +1,20 @@
 package hu.unideb.shoppinglist.login
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+//import com.google.firebase.auth.FirebaseAuth
+//import com.google.firebase.auth.ktx.auth
+//import com.google.firebase.ktx.Firebase
 import hu.unideb.shoppinglist.R
+import hu.unideb.shoppinglist.pages.HomeActivity
+import hu.unideb.shoppinglist.registration.RegistrationActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -14,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
 
     lateinit var loginViewModel: LoginViewModel
 
-
+    private var auth: FirebaseAuth = Firebase.auth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -24,17 +33,52 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         button2.setOnClickListener {
-            loginViewModel.insert(context, "ASDAasd")
+//            loginViewModel.insert(context, "Teszt1")
+//            loginViewModel.insert(context, "ASDAasd")
+            auth.signInWithEmailAndPassword(email_edit.text.toString(), editTextTextPassword3.text.toString())
+                .addOnCompleteListener { task ->
+//
+                    if (task.isSuccessful) {
+//                        println("yeeeee")
+                        val user = auth.currentUser
+
+                        Log.d("ASDDAS", user?.email.toString())
+                        val intentAct: Intent = Intent(context, HomeActivity::class.java)
+                        if(user != null) {
+                            intentAct.putExtra("TEST", user);
+
+                        }
+
+                        context.startActivity(intentAct)
+//                    success = true
+//                    _success.value = true
+
+                    } else {
+                        println(task.exception)
+//                errorMessage = "Hibaaa van"
+//                        errorMessage.value = "Hibaa"
+//                    success = false
+//                    _success.value = false
+                    }
+
+
+                }
         }
 
-        button3.setOnClickListener {
-
-            loginViewModel.getAll(context)
-
-            loginViewModel.liveDataLogin?.map {
-
-                Log.d("adaasdas", it.productName);
-            }
+    textView3.setOnClickListener {
+        val intentAct: Intent = Intent(context, RegistrationActivity::class.java)
+        context.startActivity(intentAct)
+        Log.d("sad" ,"KATTTTTT")
+    }
+//
+//        button3.setOnClickListener {
+//
+//            loginViewModel.getAll(context)
+//
+//            loginViewModel.liveDataLogin?.map {
+//
+//                Log.d("adaasdas", it.productName);
+//            }
 
 
 //            loginViewModel.liveDataLogin?.observe(this, Observer  {
@@ -48,7 +92,7 @@ class LoginActivity : AppCompatActivity() {
 //
 //        })
 //            print()
-        }
+//        }
 
 //        binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 //
