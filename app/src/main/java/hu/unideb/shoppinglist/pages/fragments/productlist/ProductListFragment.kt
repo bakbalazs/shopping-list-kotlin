@@ -1,11 +1,13 @@
 package hu.unideb.shoppinglist.pages.fragments.productlist
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import hu.unideb.shoppinglist.R
 import hu.unideb.shoppinglist.database.AppDatabase
@@ -35,17 +37,26 @@ class ProductListFragment : Fragment() {
 
         binding.productListViewModel = productListViewModel
 
-        val adapter = ProductListAdapter()
+        val adapter = ProductListAdapter(ProductClickListener {
+            productId ->   productListViewModel.onProductClicked(productId)
+        })
 
         binding.productList.adapter = adapter
 
         productListViewModel.products.observe(viewLifecycleOwner, {
             it?.let {
-                adapter.data = it
+                adapter.addHeaderAndSubmitList(it)
             }
         })
 
         binding.lifecycleOwner = this
+
+        productListViewModel.navigateToSleepDetail.observe(viewLifecycleOwner, Observer {
+            product -> product?.let {
+
+               Log.d("asddasasd", product.toString())
+        }
+        })
 
         binding.button4.setOnClickListener {
             val product = Product(editTextTextPersonName.text.toString())

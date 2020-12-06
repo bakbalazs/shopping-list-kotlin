@@ -63,7 +63,7 @@
         android:ems="10"
         android:hint="E-mail"
         android:inputType="textEmailAddress"
-
+android:text="bak.balazs@werwe.xom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -82,6 +82,7 @@
         android:layout_marginRight="20dp"
         android:ems="10"
         android:hint="Jelszó"
+        android:text="asdfgh"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

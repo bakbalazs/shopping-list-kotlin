@@ -12,5 +12,5 @@ data class Product(
 ) {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    var Id: Long? = null
+    var id: Long = 0L
 }
