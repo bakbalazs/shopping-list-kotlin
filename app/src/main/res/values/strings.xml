@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Shopping List</string>
+
+    <string name="login_page_title">Login</string>
+    <string name="login_email_hint">E-mail</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_button">Login</string>
+    <string name="login_not_registered">Do not have an account yet?</string>
+    <string name="login_register_button">Register</string>
+
+
+    <string name="registration_page_title">Registration</string>
+    <string name="registration_personal_name_hint">Name</string>
+    <string name="registration_email_hint">E-mail</string>
+    <string name="registration_password_hint">Password</string>
+    <string name="register_button">Registration</string>
+
+
 </resources>

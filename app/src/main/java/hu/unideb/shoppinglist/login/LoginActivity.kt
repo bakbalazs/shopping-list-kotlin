@@ -32,44 +32,50 @@ class LoginActivity : AppCompatActivity() {
 
         loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-        button2.setOnClickListener {
-//            loginViewModel.insert(context, "Teszt1")
-//            loginViewModel.insert(context, "ASDAasd")
-            auth.signInWithEmailAndPassword(email_edit.text.toString(), editTextTextPassword3.text.toString())
-                .addOnCompleteListener { task ->
+//        button2.setOnClickListener {
+////            loginViewModel.insert(context, "Teszt1")
+////            loginViewModel.insert(context, "ASDAasd")
+//            auth.signInWithEmailAndPassword(email_edit.text.toString(), editTextTextPassword3.text.toString())
+//                .addOnCompleteListener { task ->
+////
+//                    if (task.isSuccessful) {
+////                        println("yeeeee")
+//                        val user = auth.currentUser
 //
-                    if (task.isSuccessful) {
-//                        println("yeeeee")
-                        val user = auth.currentUser
+//                        Log.d("ASDDAS", user?.email.toString())
+//                        val intentAct: Intent = Intent(context, HomeActivity::class.java)
+//                        if(user != null) {
+//                            intentAct.putExtra("TEST", user);
+//
+//                        }
+//
+//                        context.startActivity(intentAct)
+////                    success = true
+////                    _success.value = true
+//
+//                    } else {
+//                        println(task.exception)
+////                errorMessage = "Hibaaa van"
+////                        errorMessage.value = "Hibaa"
+////                    success = false
+////                    _success.value = false
+//                    }
+//
+//
+//                }
+//        }
 
-                        Log.d("ASDDAS", user?.email.toString())
-                        val intentAct: Intent = Intent(context, HomeActivity::class.java)
-                        if(user != null) {
-                            intentAct.putExtra("TEST", user);
-
-                        }
-
-                        context.startActivity(intentAct)
-//                    success = true
-//                    _success.value = true
-
-                    } else {
-                        println(task.exception)
-//                errorMessage = "Hibaaa van"
-//                        errorMessage.value = "Hibaa"
-//                    success = false
-//                    _success.value = false
-                    }
-
-
-                }
-        }
-
-    textView3.setOnClickListener {
-        val intentAct: Intent = Intent(context, RegistrationActivity::class.java)
+        login_page_reg_button.setOnClickListener {
+            val intentAct: Intent = Intent(context, RegistrationActivity::class.java)
         context.startActivity(intentAct)
-        Log.d("sad" ,"KATTTTTT")
-    }
+//        Log.d("sad" ,"KATTTTTT")
+        }
+//
+//    textView3.setOnClickListener {
+//        val intentAct: Intent = Intent(context, RegistrationActivity::class.java)
+//        context.startActivity(intentAct)
+//        Log.d("sad" ,"KATTTTTT")
+//    }
 //
 //        button3.setOnClickListener {
 //
