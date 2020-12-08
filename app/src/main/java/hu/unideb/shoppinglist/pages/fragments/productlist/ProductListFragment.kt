@@ -9,10 +9,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import hu.unideb.shoppinglist.R
 import hu.unideb.shoppinglist.database.AppDatabase
 import hu.unideb.shoppinglist.database.model.Product
 import hu.unideb.shoppinglist.databinding.FragmentProductListBinding
+import hu.unideb.shoppinglist.pages.fragments.productdetail.ProductDetailFragmentDirections
 import kotlinx.android.synthetic.main.fragment_product_list.*
 
 class ProductListFragment : Fragment() {
@@ -55,11 +57,15 @@ class ProductListFragment : Fragment() {
             product -> product?.let {
 
                Log.d("asddasasd", product.toString())
+            this.findNavController().navigate(ProductListFragmentDirections.actionNavProductsToNavProductDetails(product))
+
+            productListViewModel.onProductDetailNavigated()
+
         }
         })
 
         binding.button4.setOnClickListener {
-            val product = Product(editTextTextPersonName.text.toString())
+            val product = Product(productName = editTextTextPersonName.text.toString())
             productListViewModel.insertData(product)
         }
         return binding.root

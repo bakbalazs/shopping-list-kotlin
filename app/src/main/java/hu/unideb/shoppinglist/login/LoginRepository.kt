@@ -25,7 +25,7 @@ class LoginRepository {
             loginDatabase = initializeDB(context)
 
             CoroutineScope(Dispatchers.IO).launch {
-                val loginDetails = Product(productNAme)
+                val loginDetails = Product(productName = productNAme)
                 loginDatabase!!.productDatabaseDao.insert(loginDetails)
             }
 

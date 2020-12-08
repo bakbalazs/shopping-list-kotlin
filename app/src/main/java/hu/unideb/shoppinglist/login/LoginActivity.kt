@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
 
         context = this@LoginActivity
 
-        loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+//        loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
 //        button2.setOnClickListener {
 ////            loginViewModel.insert(context, "Teszt1")

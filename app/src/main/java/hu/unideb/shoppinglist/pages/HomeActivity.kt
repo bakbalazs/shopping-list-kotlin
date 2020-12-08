@@ -52,10 +52,10 @@ class HomeActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         val bundle = intent.extras
-        val arr  = bundle?.getParcelable<FirebaseUser>("TEST")!!
-        navView.getHeaderView(0).findViewById<TextView>(R.id.name).text = arr.displayName.toString()
-
-        navView.getHeaderView(0).findViewById<TextView>(R.id.email).text = arr.email.toString()
+//        val arr  = bundle?.getParcelable<FirebaseUser>("TEST")!!
+//        navView.getHeaderView(0).findViewById<TextView>(R.id.name).text = arr.displayName.toString()
+//
+//        navView.getHeaderView(0).findViewById<TextView>(R.id.email).text = arr.email.toString()
 
 
 //        val navHeader:LinearLayout  = findViewById(R.id.test)

@@ -38,4 +38,8 @@ class ProductListViewModel(dataSource: ProductDao, application: Application) : V
         _navigateToProductDetail.value = null
     }
 
+    fun doneNavigating() {
+        _navigateToProductDetail.value = null
+    }
+
 }
