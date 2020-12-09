@@ -1,10 +1,8 @@
 package hu.unideb.shoppinglist.pages.fragments.productlist
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import hu.unideb.shoppinglist.R
@@ -69,7 +67,7 @@ class ProductListAdapter(private val clickListener: ProductClickListener) :
         }
     }
 
-    class ViewHolder private constructor(val binding: ListItemProductBinding) :
+    class ViewHolder private constructor(private val binding: ListItemProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Product, clickListener: ProductClickListener) {
@@ -88,15 +86,4 @@ class ProductListAdapter(private val clickListener: ProductClickListener) :
     }
 
 
-}
-
-class ProductDiffCallback : DiffUtil.ItemCallback<ProductDataItem>() {
-    override fun areItemsTheSame(oldItem: ProductDataItem, newItem: ProductDataItem): Boolean {
-        return oldItem.id == newItem.id
-    }
-
-    @SuppressLint("DiffUtilEquals")
-    override fun areContentsTheSame(oldItem: ProductDataItem, newItem: ProductDataItem): Boolean {
-        return oldItem == newItem
-    }
 }

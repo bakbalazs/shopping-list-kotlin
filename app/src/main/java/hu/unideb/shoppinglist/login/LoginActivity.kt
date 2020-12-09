@@ -4,6 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
@@ -24,46 +27,51 @@ class LoginActivity : AppCompatActivity() {
     lateinit var loginViewModel: LoginViewModel
 
     private var auth: FirebaseAuth = Firebase.auth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         context = this@LoginActivity
+//        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
 
 //        loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+//        final View yourTitleView = inflater.inflate(R.layout.title, null);
+        login_button.setOnClickListener {
 
-//        button2.setOnClickListener {
-////            loginViewModel.insert(context, "Teszt1")
-////            loginViewModel.insert(context, "ASDAasd")
-//            auth.signInWithEmailAndPassword(email_edit.text.toString(), editTextTextPassword3.text.toString())
-//                .addOnCompleteListener { task ->
-////
-//                    if (task.isSuccessful) {
-////                        println("yeeeee")
-//                        val user = auth.currentUser
+
+
+
+
+            auth.signInWithEmailAndPassword(login_email_edit_text.text.toString(), login_password_edit_text.text.toString())
+                .addOnCompleteListener { task ->
 //
-//                        Log.d("ASDDAS", user?.email.toString())
-//                        val intentAct: Intent = Intent(context, HomeActivity::class.java)
-//                        if(user != null) {
-//                            intentAct.putExtra("TEST", user);
-//
-//                        }
-//
-//                        context.startActivity(intentAct)
-////                    success = true
-////                    _success.value = true
-//
-//                    } else {
-//                        println(task.exception)
-////                errorMessage = "Hibaaa van"
-////                        errorMessage.value = "Hibaa"
-////                    success = false
-////                    _success.value = false
-//                    }
-//
-//
-//                }
-//        }
+                    if (task.isSuccessful) {
+//                        println("yeeeee")
+                        val user = auth.currentUser
+
+                        Log.d("ASDDAS", user?.email.toString())
+                        val intentAct: Intent = Intent(context, HomeActivity::class.java)
+                        if(user != null) {
+                            intentAct.putExtra("USER", user);
+
+                        }
+
+                        context.startActivity(intentAct)
+//                    success = true
+//                    _success.value = true
+
+                    } else {
+                        println(task.exception)
+//                errorMessage = "Hibaaa van"
+//                        errorMessage.value = "Hibaa"
+//                    success = false
+//                    _success.value = false
+                    }
+
+
+                }
+        }
 
         login_page_reg_button.setOnClickListener {
             val intentAct: Intent = Intent(context, RegistrationActivity::class.java)

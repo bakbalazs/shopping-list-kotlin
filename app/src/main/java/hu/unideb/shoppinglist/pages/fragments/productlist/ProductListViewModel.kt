@@ -1,6 +1,7 @@
 package hu.unideb.shoppinglist.pages.fragments.productlist
 
 import android.app.Application
+import android.util.Log
 import android.view.animation.Transformation
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -9,6 +10,7 @@ import androidx.lifecycle.viewModelScope
 import hu.unideb.shoppinglist.database.dao.ProductDao
 import hu.unideb.shoppinglist.database.model.Product
 import kotlinx.coroutines.launch
+import kotlin.properties.Delegates
 
 class ProductListViewModel(dataSource: ProductDao, application: Application) : ViewModel() {
 
@@ -16,13 +18,11 @@ class ProductListViewModel(dataSource: ProductDao, application: Application) : V
 
     val products = database.getAllProducts()
 
-    val productString = Transformations.map(products) { products ->
-        formatProductList(products)
-    }
 
     fun insertData(product: Product) {
+
         viewModelScope.launch {
-            database.insert(product)
+        database.insert(product)
         }
     }
 
@@ -41,5 +41,7 @@ class ProductListViewModel(dataSource: ProductDao, application: Application) : V
     fun doneNavigating() {
         _navigateToProductDetail.value = null
     }
+
+
 
 }

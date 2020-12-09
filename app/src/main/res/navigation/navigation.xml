@@ -8,38 +8,38 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="hu.unideb.shoppinglist.pages.fragments.home.HomeFragment"
-        android:label="HOME"
+        android:label="@string/drawer_home"
         tools:layout="@layout/activity_home" />
 
     <fragment
         android:id="@+id/nav_about"
         android:name="hu.unideb.shoppinglist.pages.fragments.about.AboutFragment"
-        android:label="About"
-        tools:layout="@layout/fragment_about" >
-        <argument
-            android:name="productId"
-            app:argType="long" />
+        android:label="@string/drawer_about"
+        tools:layout="@layout/fragment_about">
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_households"
+        android:name="hu.unideb.shoppinglist.pages.fragments.household.HouseHoldFragment"
+        android:label="@string/drawer_hoseholds"
+        tools:layout="@layout/fragment_household">
     </fragment>
 
     <fragment
         android:id="@+id/nav_products"
         android:name="hu.unideb.shoppinglist.pages.fragments.productlist.ProductListFragment"
-        android:label="Products"
-        tools:layout="@layout/fragment_product_list" >
-        <argument
-            android:name="productId"
-            app:argType="long" />
+        android:label="@string/drawer_products"
+        tools:layout="@layout/fragment_product_list">
         <action
             android:id="@+id/action_nav_products_to_nav_product_details"
             app:destination="@id/nav_product_details" />
     </fragment>
 
-
     <fragment
         android:id="@+id/nav_product_details"
         android:name="hu.unideb.shoppinglist.pages.fragments.productdetail.ProductDetailFragment"
-        android:label="Product Detail"
-        tools:layout="@layout/fragment_product_detail" >
+        android:label="@string/drawer_product_detail"
+        tools:layout="@layout/fragment_product_detail">
         <argument
             android:name="productId"
             app:argType="long" />

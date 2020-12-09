@@ -7,13 +7,22 @@
     <string name="login_button">Login</string>
     <string name="login_not_registered">Do not have an account yet?</string>
     <string name="login_register_button">Register</string>
-
-
+                android:paddingTop="10dp"
     <string name="registration_page_title">Registration</string>
     <string name="registration_personal_name_hint">Name</string>
     <string name="registration_email_hint">E-mail</string>
     <string name="registration_password_hint">Password</string>
     <string name="register_button">Registration</string>
+
+    <string name="nav_drawer_header_welcome">Welcome, </string>
+
+    <string name="drawer_home">Home</string>
+    <string name="drawer_products">Products</string>
+    <string name="drawer_product_detail">Product Detail</string>
+    <string name="drawer_hoseholds">Households</string>
+    <string name="drawer_about">About</string>
+
+    <string name="products_list_header_title">Products</string>
 
 
 </resources>

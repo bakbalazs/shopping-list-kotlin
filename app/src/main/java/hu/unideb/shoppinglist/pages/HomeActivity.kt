@@ -1,7 +1,6 @@
 package hu.unideb.shoppinglist.pages
 
 import android.os.Bundle
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -18,20 +17,15 @@ import hu.unideb.shoppinglist.R
 
 class HomeActivity : AppCompatActivity() {
 
-//    private lateinit var binding: ActivityHomeBinding
-
-
     private lateinit var appBarConfiguration: AppBarConfiguration
 
-    lateinit var homeViewModel: HomeViewModel
+    private lateinit var homeViewModel: HomeViewModel
+
+    lateinit var userId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-//
-//        val binding: FragmentProductListBinding = DataBindingUtil.inflate(
-//            inflater, R.layout.fragment_product_list, container, false
-//        )
 
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
@@ -45,39 +39,22 @@ class HomeActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_about, R.id.nav_products
+                R.id.nav_home, R.id.nav_about, R.id.nav_products, R.id.nav_households
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
         val bundle = intent.extras
-//        val arr  = bundle?.getParcelable<FirebaseUser>("TEST")!!
-//        navView.getHeaderView(0).findViewById<TextView>(R.id.name).text = arr.displayName.toString()
-//
-//        navView.getHeaderView(0).findViewById<TextView>(R.id.email).text = arr.email.toString()
+        val userData = bundle?.getParcelable<FirebaseUser>("USER")!!
 
+        navView.getHeaderView(0).findViewById<TextView>(R.id.user_personal_name).text =
+            userData.displayName.toString()
 
-//        val navHeader:LinearLayout  = findViewById(R.id.test)
+        navView.getHeaderView(0).findViewById<TextView>(R.id.user_email).text =
+            userData.email.toString()
 
-//
-//        navHeader.findViewById<TextView>(R.id.email).text = arr.email.toString()
-
-
-//        navView.findViewById<TextView>(R.id.email).text = arr.email.toString()
-//        val textView: TextView = findViewById<TextView>(R.id.email)
-//        textView.text = arr.email.toString()
-
-//        binding.email.text = arr.email.toString()
-
-//        homeViewModel.test = arr.email.toString()
-//        binding.email.text = arr.email.toString()
-//        Log.d("NÉV", arr.email.toString())
-
-//        email.text = arr.email.toString()
-//        val textView: TextView = findViewById(R.id.email) as TextView
-//
-//        textView.text = arr.email.toString()
+        userId = userData.uid
 
     }
 

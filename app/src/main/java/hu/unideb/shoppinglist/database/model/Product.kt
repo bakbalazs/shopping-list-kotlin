@@ -8,23 +8,23 @@ import java.util.*
 @Entity(tableName = "product")
 data class Product(
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     @ColumnInfo(name = "id")
     var id: Long = 0L,
 
     @ColumnInfo(name = "product_name")
     val productName: String,
 
-//    @ColumnInfo(name = "product_piece")
-//    val productPiece: Number,
-//
-//    @ColumnInfo(name = "shop_name")
-//    val shopName: String,
-//
-//    @ColumnInfo(name = "add_date")
-//    val addDate:Date,
-//
-//    @ColumnInfo(name = "purchase_date")
-//    val purchaseDate: Date
+    @ColumnInfo(name = "product_piece")
+    val productPiece: Int,
+
+    @ColumnInfo(name = "shop_name")
+    val shopName: String,
+
+    @ColumnInfo(name = "add_date")
+    val addDate: String,
+
+    @ColumnInfo(name = "purchase_date")
+    val purchaseDate: String = "",
 
 )
