@@ -6,24 +6,69 @@
     android:layout_height="match_parent"
     tools:context=".pages.fragments.home.HomeFragment">
 
-<!--    <TextView-->
-<!--        android:id="@+id/text_home"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="8dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:layout_marginEnd="8dp"-->
-<!--        android:textAlignment="center"-->
-<!--        android:textSize="20sp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/productNameTable"
+                android:layout_weight="10"
+                android:text="Belépett user Email" />
+
+            <TextView
+                android:id="@+id/productName"
+                android:layout_height="wrap_content"
+                android:layout_weight="60"
+                android:text="bak.balazs95@gmail.com" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/productPieceTable"
+                android:layout_weight="20"
+                android:text="A felhazsnáló által felvett termékek száma" />
+
+            <TextView
+                android:id="@+id/productPiece"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="10" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/productPieceTawble"
+                android:layout_weight="20"
+                android:text="A felhazsnáló által megvásárolt termékek száma" />
+
+            <TextView
+                android:id="@+id/productP3iece"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="5" />
+        </TableRow>
+
+    </TableLayout>
+
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home"
-        tools:layout_editor_absoluteX="97dp"
-        tools:layout_editor_absoluteY="241dp" />
+        android:layout_marginBottom="224dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

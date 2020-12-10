@@ -1,5 +1,6 @@
 package hu.unideb.shoppinglist.pages.fragments.productlist
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +17,10 @@ import kotlinx.coroutines.withContext
 private const val ITEM_VIEW_TYPE_HEADER = 0
 private const val ITEM_VIEW_TYPE_ITEM = 1
 
-class ProductListAdapter(private val clickListener: ProductClickListener) :
+class ProductListAdapter(
+    private val clickListener: ProductClickListener,
+    private val checkBoxClickListener: ProductCheckBoxClickListener
+) :
     ListAdapter<ProductDataItem, RecyclerView.ViewHolder>(ProductDiffCallback()) {
 
     private val adapterScope = CoroutineScope(Dispatchers.Default)
@@ -37,7 +41,7 @@ class ProductListAdapter(private val clickListener: ProductClickListener) :
         when (holder) {
             is ViewHolder -> {
                 val productItem = getItem(position) as ProductDataItem.ProductItem
-                holder.bind(productItem.product, clickListener)
+                holder.bind(productItem.product, clickListener, checkBoxClickListener)
             }
         }
     }
@@ -70,9 +74,14 @@ class ProductListAdapter(private val clickListener: ProductClickListener) :
     class ViewHolder private constructor(private val binding: ListItemProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Product, clickListener: ProductClickListener) {
+        fun bind(
+            item: Product,
+            clickListener: ProductClickListener,
+            checkBoxClickListener: ProductCheckBoxClickListener
+        ) {
             binding.product = item
             binding.clickListener = clickListener
+            binding.checkBoxClickListener = checkBoxClickListener
             binding.executePendingBindings()
         }
 

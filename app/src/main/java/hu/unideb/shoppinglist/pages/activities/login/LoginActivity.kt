@@ -1,23 +1,21 @@
-package hu.unideb.shoppinglist.login
+package hu.unideb.shoppinglist.pages.activities.login
 
+//import com.google.firebase.auth.FirebaseAuth
+//import com.google.firebase.auth.ktx.auth
+//import com.google.firebase.ktx.Firebase
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-//import com.google.firebase.auth.FirebaseAuth
-//import com.google.firebase.auth.ktx.auth
-//import com.google.firebase.ktx.Firebase
 import hu.unideb.shoppinglist.R
-import hu.unideb.shoppinglist.pages.HomeActivity
-import hu.unideb.shoppinglist.registration.RegistrationActivity
+import hu.unideb.shoppinglist.pages.activities.home.HomeActivity
+import hu.unideb.shoppinglist.pages.activities.registration.RegistrationActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -35,13 +33,12 @@ class LoginActivity : AppCompatActivity() {
         context = this@LoginActivity
 //        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
 
-//        loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 //        final View yourTitleView = inflater.inflate(R.layout.title, null);
         login_button.setOnClickListener {
 
-
-
-
+            login_button.visibility = View.GONE
+            progressBar.visibility = View.VISIBLE
 
             auth.signInWithEmailAndPassword(login_email_edit_text.text.toString(), login_password_edit_text.text.toString())
                 .addOnCompleteListener { task ->

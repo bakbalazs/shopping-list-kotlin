@@ -19,13 +19,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_households"
-        android:name="hu.unideb.shoppinglist.pages.fragments.household.HouseHoldFragment"
-        android:label="@string/drawer_hoseholds"
-        tools:layout="@layout/fragment_household">
-    </fragment>
-
-    <fragment
         android:id="@+id/nav_products"
         android:name="hu.unideb.shoppinglist.pages.fragments.productlist.ProductListFragment"
         android:label="@string/drawer_products"

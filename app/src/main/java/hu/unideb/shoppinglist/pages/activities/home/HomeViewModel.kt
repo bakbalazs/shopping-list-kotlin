@@ -1,4 +1,4 @@
-package hu.unideb.shoppinglist.pages
+package hu.unideb.shoppinglist.pages.activities.home
 
 import androidx.lifecycle.ViewModel
 

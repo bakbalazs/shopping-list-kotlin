@@ -1,4 +1,4 @@
-package hu.unideb.shoppinglist.pages
+package hu.unideb.shoppinglist.pages.activities.home
 
 import android.os.Bundle
 import android.widget.TextView
@@ -39,7 +39,7 @@ class HomeActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_about, R.id.nav_products, R.id.nav_households
+                R.id.nav_home, R.id.nav_about, R.id.nav_products
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -61,5 +61,8 @@ class HomeActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun onBackPressed() {
     }
 }

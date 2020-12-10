@@ -27,4 +27,9 @@ data class Product(
     @ColumnInfo(name = "purchase_date")
     val purchaseDate: String = "",
 
+    @ColumnInfo(name = "purchased")
+    var purchased: Boolean = false,
+
+    @ColumnInfo(name = "user_id")
+    val userId: String = "",
 )

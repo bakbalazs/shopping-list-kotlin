@@ -12,17 +12,18 @@ import hu.unideb.shoppinglist.database.model.Product
 import kotlinx.coroutines.launch
 import kotlin.properties.Delegates
 
-class ProductListViewModel(dataSource: ProductDao, application: Application) : ViewModel() {
+class ProductListViewModel(dataSource: ProductDao, application: Application, userId: String) :
+    ViewModel() {
 
     var database = dataSource
 
-    val products = database.getAllProducts()
+//    val products = database.getAllProducts()
 
+    val products = database.getAllProductsByUserId(userId)
 
     fun insertData(product: Product) {
-
         viewModelScope.launch {
-        database.insert(product)
+            database.insert(product)
         }
     }
 
@@ -42,6 +43,10 @@ class ProductListViewModel(dataSource: ProductDao, application: Application) : V
         _navigateToProductDetail.value = null
     }
 
-
-
+    fun onChecked(product: Product) {
+        viewModelScope.launch {
+            product.purchased = product.purchased != true
+            database.update(product)
+        }
+    }
 }

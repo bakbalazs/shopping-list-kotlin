@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShoppingList">
         <activity
-            android:name=".login.LoginActivity"
+            android:name="hu.unideb.shoppinglist.pages.activities.login.LoginActivity"
             android:theme="@style/Theme.ShoppingList.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,10 +31,10 @@
 <!--            </intent-filter>-->
 <!--        </activity>-->
         <activity
-            android:name=".pages.HomeActivity"
+            android:name=".pages.activities.home.HomeActivity"
             android:theme="@style/Theme.ShoppingList.NoActionBar" />
         <activity
-            android:name=".registration.RegistrationActivity"
+            android:name="hu.unideb.shoppinglist.pages.activities.registration.RegistrationActivity"
             android:theme="@style/Theme.ShoppingList.NoActionBar" />
     </application>
 

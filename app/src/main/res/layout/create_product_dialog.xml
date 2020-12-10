@@ -1,58 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <EditText
-        android:id="@+id/productt_name"
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:inputType="textPersonName"
-        android:text="Termék neve" />
+        android:ems="10"
+        android:hint="@string/create_product_dialog_name"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/piece"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:inputType="textPersonName"
-        android:text="Hány db?" />
+        android:ems="10"
+        android:inputType="number"
+        android:importantForAutofill="no"
+        android:hint="@string/create_product_dialog_piece"
+        tools:ignore="LabelFor" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/shop_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:inputType="textPersonName"
-        android:text="Cikk ára" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:ems="10"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:text="Honnan?" />
+        android:hint="@string/create_product_dialog_shop_name"
+        tools:ignore="LabelFor" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/create_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-
-        android:text="Termék létrehozása"
-        />
+        android:text="@string/create_product_dialog_product_create_button" />
 
 </LinearLayout>

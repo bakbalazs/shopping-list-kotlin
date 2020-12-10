@@ -1,16 +1,8 @@
-package hu.unideb.shoppinglist.login
-
-import android.content.Context
-import androidx.lifecycle.LiveData
-import hu.unideb.shoppinglist.database.AppDatabase
-import hu.unideb.shoppinglist.database.model.Product
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+package hu.unideb.shoppinglist.pages.activities.login
 
 class LoginRepository {
 
-    companion object {
+//    companion object {
 
 //        var loginDatabase: AppDatabase? = null
 //
@@ -40,5 +32,5 @@ class LoginRepository {
 //            return loginTableModel
 //        }
 
-    }
+//    }
 }

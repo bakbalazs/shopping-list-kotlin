@@ -1,16 +1,12 @@
-package hu.unideb.shoppinglist.registration
+package hu.unideb.shoppinglist.pages.activities.registration
 
 import android.content.Context
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.ktx.Firebase
 import hu.unideb.shoppinglist.R
-import kotlinx.android.synthetic.main.activity_registration.*
 
 class RegistrationActivity : AppCompatActivity() {
 

@@ -5,10 +5,13 @@
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textAlignment="center"
-        android:text="Termék hozzáadása"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:text="@string/create_product_dialog_title"
         android:gravity="center_horizontal" />
 </LinearLayout>

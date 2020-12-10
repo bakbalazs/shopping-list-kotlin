@@ -21,6 +21,7 @@ import hu.unideb.shoppinglist.utils.BaseFragment
 import kotlinx.android.synthetic.main.create_product_dialog.*
 import kotlinx.android.synthetic.main.create_product_dialog.view.*
 import kotlinx.android.synthetic.main.fragment_product_list.*
+import kotlinx.android.synthetic.main.list_item_product.*
 import kotlinx.android.synthetic.main.product_list_header.view.*
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
@@ -28,7 +29,6 @@ import java.time.LocalDate
 import java.util.*
 
 class ProductListFragment : BaseFragment() {
-    private lateinit var database: DatabaseReference
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,21 +37,27 @@ class ProductListFragment : BaseFragment() {
         val binding: FragmentProductListBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_product_list, container, false
         )
+        val incomingText = ACTIVITY.userId
 
         val application = requireNotNull(this.activity).application
 
         val dataSource = AppDatabase.getInstance(application).productDatabaseDao
 
-        val viewModelFactory = ProductListViewModelFactory(dataSource, application)
+        val viewModelFactory = ProductListViewModelFactory(dataSource, application, incomingText)
 
         val productListViewModel =
             ViewModelProvider(this, viewModelFactory).get(ProductListViewModel::class.java)
 
         binding.productListViewModel = productListViewModel
 
-        val adapter = ProductListAdapter(ProductClickListener { productId ->
-            productListViewModel.onProductClicked(productId)
-        })
+        val adapter = ProductListAdapter(
+            ProductClickListener { productId ->
+                productListViewModel.onProductClicked(productId)
+            },
+            ProductCheckBoxClickListener { product ->
+                productListViewModel.onChecked(product)
+            }
+        )
 
         binding.productList.adapter = adapter
 
@@ -66,7 +72,6 @@ class ProductListFragment : BaseFragment() {
         productListViewModel.navigateToSleepDetail.observe(viewLifecycleOwner, Observer { product ->
             product?.let {
 
-                Log.d("asddasasd", product.toString())
                 this.findNavController().navigate(
                     ProductListFragmentDirections.actionNavProductsToNavProductDetails(product)
                 )
@@ -75,92 +80,32 @@ class ProductListFragment : BaseFragment() {
 
             }
         })
-        database = Firebase.database.reference
 
-        val incomingText = ACTIVITY.userId
-//        println("Incoming text: "+incomingText)
-//        val bundle:Bundle = get;
-//        this.getA
-
-//        var userid:String = ""
-//        arguments?.let {
-//            userid = it.getString("userId")!!
-//        }
-
-
-//        activity.result
-
-//        val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
-//        val currentDate = sdf.format(Date())
-//        val currentDate = LocalDate.now()
-        val simpleDateFormat = SimpleDateFormat("yyyy.MM.dd HH:mm:ss")
+        val simpleDateFormat = SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.ENGLISH)
         val currentDateAndTime: String = simpleDateFormat.format(Date())
         binding.button4.setOnClickListener {
-            val mDialogView = LayoutInflater.from(context).inflate(R.layout.create_product_dialog, null)
+            val mDialogView =
+                LayoutInflater.from(context).inflate(R.layout.create_product_dialog, null)
             //AlertDialogBuilder
             val mBuilder = AlertDialog.Builder(this@ProductListFragment.requireContext())
                 .setView(mDialogView)
-                .setCustomTitle(LayoutInflater.from(context).inflate(R.layout.dialog_title, null,false))
+                .setCustomTitle(
+                    LayoutInflater.from(context).inflate(R.layout.dialog_title, null, false)
+                )
 
-            //show dialog
-            val  mAlertDialog = mBuilder.show()
-            //login button click of custom layout
-            mDialogView.button.setOnClickListener {
-                //dismiss dialog
+            val mAlertDialog = mBuilder.show()
+            mDialogView.create_button.setOnClickListener {
                 mAlertDialog.dismiss()
-                //get text from EditTexts of custom layout
-//                val name = mDialogView.dialogNameEt.text.toString()
-//                val email = mDialogView.dialogEmailEt.text.toString()
-//                val password = mDialogView.dialogPasswEt.text.toString()
-                //set the input text in TextView
-//                mainInfoTv.setText("Name:"+ name +"\nEmail: "+ email +"\nPassword: "+ password)
-
                 val product = Product(
-                id = Timestamp(System.currentTimeMillis()).time,
-                productName = mDialogView.productt_name.text.toString(),
-                productPiece = 2,
-                shopName = mDialogView.editTextTextPersonName4.text.toString(),
-                addDate = currentDateAndTime
-            )
+                    id = Timestamp(System.currentTimeMillis()).time,
+                    productName = mDialogView.name.text.toString(),
+                    productPiece = mDialogView.piece.text.toString().toInt(),
+                    shopName = mDialogView.shop_name.text.toString(),
+                    addDate = currentDateAndTime,
+                    userId = incomingText
+                )
                 productListViewModel.insertData(product)
-                val newData2 =
-                    database.child("household").child("products").push()
-                newData2.setValue(product)
             }
-            //cancel button click of custom layout
-//            mDialogView.dialogCancelBtn.setOnClickListener {
-//                //dismiss dialog
-//                mAlertDialog.dismiss()
-//            }
-
-
-
-
-//            productListViewModel.insertData(product)
-//
-//            productListViewModel.insertData(product)
-
-//            val newData = database.child("products").child(incomingText).push()
-//            newData.setValue( product)
-
-//            val users: ArrayList<String>? = null
-
-//            users.toMutableList().add(incomingText)
-//            users?.add(incomingText)
-
-//            val list = arrayListOf<String>()
-//            list.add(incomingText)
-//            val list2 = arrayListOf<Product>()
-//
-//            list2.add(product)
-//
-//            val household = HouseHold(
-//                householdName = "Teszt",
-//                userIds = list,
-//                products = list2
-//            )
-//
-
 
         }
         return binding.root
