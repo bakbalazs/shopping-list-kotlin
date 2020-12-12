@@ -26,71 +26,72 @@
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
-        android:orientation="horizontal"
-        android:onClick="@{() -> clickListener.onClick(product)}">
+        android:onClick="@{() -> clickListener.onClick(product)}"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/product_name"
-            android:layout_weight="20"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="40"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+
             app:layout_constraintVertical_bias="0.0"
             app:productName="@{product}"
             tools:ignore="RtlSymmetry"
-
-            tools:text="Wednesday"
-            android:layout_width="wrap_content" />
+            tools:text="Wednesday" />
 
 
         <TextView
             android:id="@+id/dfddf"
-            android:layout_weight="20"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:layout_weight="40"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:productName="@{product}"
+            app:shopName="@{product}"
+
             tools:ignore="RtlSymmetry"
+            tools:text="Wednesday" />
 
-            tools:text="Wednesday"
-            android:layout_width="wrap_content" />
+        <!--        <TextView-->
+        <!--            android:id="@+id/ss"-->
+        <!--            android:layout_weight="20"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="end"-->
+        <!--            android:paddingEnd="10dp"-->
+        <!--            android:paddingRight="10dp"-->
+        <!--            android:paddingTop="10dp"-->
+        <!--            android:paddingBottom="10dp"-->
+        <!--            android:layout_gravity="end"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:layout_constraintVertical_bias="0.0"-->
 
-<!--        <TextView-->
-<!--            android:id="@+id/ss"-->
-<!--            android:layout_weight="20"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="end"-->
-<!--            android:paddingEnd="10dp"-->
-<!--            android:paddingRight="10dp"-->
-<!--            android:paddingTop="10dp"-->
-<!--            android:paddingBottom="10dp"-->
-<!--            android:layout_gravity="end"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:layout_constraintVertical_bias="0.0"-->
-
-<!--            app:addDate="@{product}"-->
-<!--            tools:text="Wednesday"-->
-<!--            tools:ignore="RtlSymmetry"-->
-<!--            android:layout_width="wrap_content" />-->
+        <!--            app:addDate="@{product}"-->
+        <!--            tools:text="Wednesday"-->
+        <!--            tools:ignore="RtlSymmetry"-->
+        <!--            android:layout_width="wrap_content" />-->
 
         <CheckBox
             android:id="@+id/checkBox"
-            android:layout_weight="20"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:layout_weight="45"
+            android:checked="@{product.purchased}"
+            android:onClick="@{() -> checkBoxClickListener.onClick(product)}"
+            android:text="Megvásárolva"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:productName="@{product}"
             tools:ignore="RtlSymmetry"
-            android:checked="@{product.purchased}"
-            android:onClick="@{() -> checkBoxClickListener.onClick(product)}"
-            tools:text="Wednesday"
-            android:layout_width="wrap_content" />
+            tools:text="Wednesday" />
 
 
     </LinearLayout>

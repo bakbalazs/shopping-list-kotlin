@@ -1,18 +1,16 @@
 package hu.unideb.shoppinglist.pages.fragments.productlist
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import hu.unideb.shoppinglist.R
 import hu.unideb.shoppinglist.database.AppDatabase
 import hu.unideb.shoppinglist.database.model.Product
@@ -25,10 +23,10 @@ import kotlinx.android.synthetic.main.list_item_product.*
 import kotlinx.android.synthetic.main.product_list_header.view.*
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.util.*
 
 class ProductListFragment : BaseFragment() {
+    @SuppressLint("InflateParams")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,13 +35,13 @@ class ProductListFragment : BaseFragment() {
         val binding: FragmentProductListBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_product_list, container, false
         )
-        val incomingText = ACTIVITY.userId
+        val userId = ACTIVITY.userId
 
         val application = requireNotNull(this.activity).application
 
         val dataSource = AppDatabase.getInstance(application).productDatabaseDao
 
-        val viewModelFactory = ProductListViewModelFactory(dataSource, application, incomingText)
+        val viewModelFactory = ProductListViewModelFactory(dataSource, userId)
 
         val productListViewModel =
             ViewModelProvider(this, viewModelFactory).get(ProductListViewModel::class.java)
@@ -61,6 +59,13 @@ class ProductListFragment : BaseFragment() {
 
         binding.productList.adapter = adapter
 
+        DividerItemDecoration(
+            context,
+            LinearLayoutManager.VERTICAL
+        ).apply {
+            binding.productList.addItemDecoration(this)
+        }
+
         productListViewModel.products.observe(viewLifecycleOwner, {
             it?.let {
                 adapter.addHeaderAndSubmitList(it)
@@ -69,13 +74,12 @@ class ProductListFragment : BaseFragment() {
 
         binding.lifecycleOwner = this
 
-        productListViewModel.navigateToSleepDetail.observe(viewLifecycleOwner, Observer { product ->
+        productListViewModel.navigateToSleepDetail.observe(viewLifecycleOwner, { product ->
             product?.let {
 
                 this.findNavController().navigate(
                     ProductListFragmentDirections.actionNavProductsToNavProductDetails(product)
                 )
-
                 productListViewModel.onProductDetailNavigated()
 
             }
@@ -86,7 +90,6 @@ class ProductListFragment : BaseFragment() {
         binding.button4.setOnClickListener {
             val mDialogView =
                 LayoutInflater.from(context).inflate(R.layout.create_product_dialog, null)
-            //AlertDialogBuilder
             val mBuilder = AlertDialog.Builder(this@ProductListFragment.requireContext())
                 .setView(mDialogView)
                 .setCustomTitle(
@@ -99,10 +102,10 @@ class ProductListFragment : BaseFragment() {
                 val product = Product(
                     id = Timestamp(System.currentTimeMillis()).time,
                     productName = mDialogView.name.text.toString(),
-                    productPiece = mDialogView.piece.text.toString().toInt(),
+                    productQuantity = mDialogView.piece.text.toString().toInt(),
                     shopName = mDialogView.shop_name.text.toString(),
                     addDate = currentDateAndTime,
-                    userId = incomingText
+                    userId = userId
                 )
                 productListViewModel.insertData(product)
             }

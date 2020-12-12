@@ -11,10 +11,10 @@ fun TextView.setProductName(item: Product?) {
     }
 }
 
-@BindingAdapter("productPiece")
-fun TextView.setProductPiece(item: Product?) {
+@BindingAdapter("productQuantity")
+fun TextView.setProductQuantity(item: Product?) {
     item?.let {
-        text = item.productPiece.toString()
+        text = item.productQuantity.toString()
     }
 }
 
@@ -36,6 +36,20 @@ fun TextView.setProductAddDate(item: Product?) {
 fun TextView.setPurchaseDate(item: Product?) {
     item?.let {
         text = item.purchaseDate
+    }
+}
+
+@BindingAdapter("productsNumber")
+fun TextView.setProductsNumber(item:List<Product>?) {
+    item?.let {
+        text = item.size.toString()
+    }
+}
+
+@BindingAdapter("purchasedProductsNumber")
+fun TextView.setPurchasedProductsNumber(item:List<Product>?) {
+    item?.let {
+        text = item.size.toString()
     }
 }
 

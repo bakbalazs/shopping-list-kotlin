@@ -3,9 +3,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <!-- Data to make available to the XML via data binding. In this case,
- the whole ViewModel, so that we can access the LiveData,
- click handlers, and state variables. -->
+
     <data>
 
         <variable
@@ -13,76 +11,136 @@
             type="hu.unideb.shoppinglist.pages.fragments.productdetail.ProductDetailViewModel" />
     </data>
 
-    <TableLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TableRow>
-            <TextView
-                android:id="@+id/productNameTable"
-                android:text="@string/product_detail_fragment_product_name"
-                android:layout_weight="20"
-                />
-            <TextView
-                android:id="@+id/productName"
-                android:layout_weight="30"
-                android:layout_height="wrap_content"
-                app:productName="@{productDetailViewModel.product}" />
-        </TableRow>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/drawer_product_detail"
+            android:textColor="@color/primary"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.561" />
 
-        <TableRow>
-            <TextView
-                android:id="@+id/productPieceTable"
-                android:text="@string/product_detail_fragment_product_piece"
-                android:layout_weight="20"
-                />
-            <TextView
-                android:id="@+id/productPiece"
-                android:layout_weight="30"
-                android:layout_height="wrap_content"
-                app:productPiece="@{productDetailViewModel.product}" />
-        </TableRow>
+        <TableLayout
+            android:id="@+id/tableLayout"
 
-        <TableRow>
-            <TextView
-                android:id="@+id/shopNameTable"
-                android:text="@string/product_detail_fragment_product_shop_name"
-                android:layout_weight="20"
-                />
-            <TextView
-                android:id="@+id/shopName"
-                android:layout_weight="30"
-                android:layout_height="wrap_content"
-                app:shopName="@{productDetailViewModel.product}" />
-        </TableRow>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/productNameTable"
+                    android:layout_weight="20"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:text="@string/product_detail_fragment_product_name"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:id="@+id/productName"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:textSize="16sp"
+                    app:productName="@{productDetailViewModel.product}" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/productPieceTable"
+                    android:layout_weight="20"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:text="@string/product_detail_fragment_product_piece"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:id="@+id/productPiece"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:textSize="16sp"
+                    app:productQuantity="@{productDetailViewModel.product}" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/shopNameTable"
+                    android:layout_weight="20"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:text="@string/product_detail_fragment_product_shop_name"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:id="@+id/shopName"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:textSize="16sp"
+                    app:shopName="@{productDetailViewModel.product}" />
+            </TableRow>
 
 
-        <TableRow>
-            <TextView
-                android:id="@+id/addDateTable"
-                android:text="@string/product_detail_fragment_product_add_date"
-                android:layout_weight="20"
-                />
-            <TextView
-                android:id="@+id/addDate"
-                android:layout_weight="30"
-                android:layout_height="wrap_content"
-                app:addDate="@{productDetailViewModel.product}" />
-        </TableRow>
+            <TableRow>
 
-        <TableRow>
-            <TextView
-                android:id="@+id/purchaseDateTable"
-                android:text="@string/product_detail_fragment_product_purchase_date"
-                android:layout_weight="20"
-                />
-            <TextView
-                android:id="@+id/purchaseDate"
-                android:layout_weight="30"
-                android:layout_height="wrap_content"
-                app:purchaseDate="@{productDetailViewModel.product}" />
-        </TableRow>
-    </TableLayout>
+                <TextView
+                    android:id="@+id/addDateTable"
+                    android:layout_weight="20"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:text="@string/product_detail_fragment_product_add_date"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:id="@+id/addDate"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:textSize="16sp"
+                    app:addDate="@{productDetailViewModel.product}" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/purchaseDateTable"
+                    android:layout_weight="20"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:text="@string/product_detail_fragment_product_purchase_date"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:id="@+id/purchaseDate"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:textSize="16sp"
+                    app:purchaseDate="@{productDetailViewModel.product}" />
+            </TableRow>
+        </TableLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </layout>

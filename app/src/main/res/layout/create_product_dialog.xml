@@ -23,9 +23,9 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:ems="10"
-        android:inputType="number"
-        android:importantForAutofill="no"
         android:hint="@string/create_product_dialog_piece"
+        android:importantForAutofill="no"
+        android:inputType="number"
         tools:ignore="LabelFor" />
 
     <EditText
@@ -35,9 +35,9 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:ems="10"
+        android:hint="@string/create_product_dialog_shop_name"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:hint="@string/create_product_dialog_shop_name"
         tools:ignore="LabelFor" />
 
     <Button

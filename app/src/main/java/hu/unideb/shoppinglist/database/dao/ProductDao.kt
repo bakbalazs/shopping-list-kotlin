@@ -16,12 +16,12 @@ interface ProductDao {
     @Query("SELECT * FROM product")
     fun getAllProducts(): LiveData<List<Product>>
 
-    @Query("SELECT * FROM product where user_id = :userId order by id DESC")
+    @Query("SELECT * FROM product where user_id = :userId order by purchased ASC , id DESC")
     fun getAllProductsByUserId(userId: String): LiveData<List<Product>>
 
     @Query("SELECT * from product where id = :id")
     fun getProductWithId(id: Long): LiveData<Product>
 
-//    @Query("SELECT * FROM product where user_id = :userId AND purchased = 'true' ")
-//    suspend fun getPurchasedProduct(userId: String)
+    @Query("SELECT * FROM product where user_id = :userId AND purchased = 1 ")
+    fun getPurchasedProduct(userId: String): LiveData<List<Product>>
 }

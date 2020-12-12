@@ -1,23 +1,18 @@
 package hu.unideb.shoppinglist.pages.fragments.productlist
 
-import android.app.Application
-import android.util.Log
-import android.view.animation.Transformation
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import hu.unideb.shoppinglist.database.dao.ProductDao
 import hu.unideb.shoppinglist.database.model.Product
 import kotlinx.coroutines.launch
-import kotlin.properties.Delegates
+import java.text.SimpleDateFormat
+import java.util.*
 
-class ProductListViewModel(dataSource: ProductDao, application: Application, userId: String) :
+class ProductListViewModel(dataSource: ProductDao, userId: String) :
     ViewModel() {
 
     var database = dataSource
-
-//    val products = database.getAllProducts()
 
     val products = database.getAllProductsByUserId(userId)
 
@@ -39,13 +34,19 @@ class ProductListViewModel(dataSource: ProductDao, application: Application, use
         _navigateToProductDetail.value = null
     }
 
-    fun doneNavigating() {
-        _navigateToProductDetail.value = null
-    }
-
     fun onChecked(product: Product) {
         viewModelScope.launch {
-            product.purchased = product.purchased != true
+
+            if (!product.purchased) {
+                product.purchased = true
+                val simpleDateFormat = SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.ENGLISH)
+
+                product.purchaseDate = simpleDateFormat.format(Date())
+            } else {
+                product.purchased = false
+                product.purchaseDate = ""
+            }
+
             database.update(product)
         }
     }

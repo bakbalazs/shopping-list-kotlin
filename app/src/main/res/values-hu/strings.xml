@@ -1,2 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Bevásárló lista</string>
+
+    <string name="login_page_title">Bejelentkezés</string>
+    <string name="login_email_hint">E-mail</string>
+    <string name="login_password_hint">Jelszó</string>
+    <string name="login_button">Belépés</string>
+    <string name="login_not_registered">Nincs még fiókod?</string>
+    <string name="login_register_button">Regisztráció</string>
+
+    <string name="registration_page_title">Regisztráció</string>
+    <string name="registration_personal_name_hint">Név</string>
+    <string name="registration_email_hint">E-mail</string>
+    <string name="registration_password_hint">Jelszó</string>
+    <string name="register_button">Regisztrálás</string>
+
+    <string name="nav_drawer_header_welcome">Üdv,&#160;</string>
+
+    <string name="drawer_home">Főoldal</string>
+    <string name="drawer_products">Termékek</string>
+    <string name="drawer_product_detail">Termék részletek</string>
+    <string name="drawer_about">Rólunk</string>
+
+    <string name="products_list_header_title">Termékek</string>
+
+    <string name="fragment_product_list_button">Új termék hozzáadása</string>
+
+    <string name="create_product_dialog_title">Termék hozzáadása</string>
+    <string name="create_product_dialog_name">Név</string>
+    <string name="create_product_dialog_piece">Piece</string>
+    <string name="create_product_dialog_shop_name">Bolt neve</string>
+    <string name="create_product_dialog_product_create_button">Hozzáadás</string>
+
+    <string name="product_detail_fragment_title">Termék részletek</string>
+    <string name="product_detail_fragment_product_name">Név</string>
+    <string name="product_detail_fragment_product_piece">Piece</string>
+    <string name="product_detail_fragment_product_shop_name">Bolt neve</string>
+    <string name="product_detail_fragment_product_add_date">Hozzáadás dátuma</string>
+    <string name="product_detail_fragment_product_purchase_date">Vásárlás dátuma</string>
+
+    <string name="home_fragment_title">Információk</string>
+    <string name="home_fragment_logged_in_user">Belépett felhasználó e-mail</string>
+    <string name="home_fragment_products">Felhazsnáló termékeinek a száma:&#160;</string>
+    <string name="home_fragment_purchased_products">Felhasználó megvásárolt termékeinek a száma:&#160;</string>
+
+    <string name="about_fragment_description"></string>
+
+</resources>

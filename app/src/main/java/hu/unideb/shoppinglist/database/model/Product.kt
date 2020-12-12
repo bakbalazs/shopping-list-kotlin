@@ -15,8 +15,8 @@ data class Product(
     @ColumnInfo(name = "product_name")
     val productName: String,
 
-    @ColumnInfo(name = "product_piece")
-    val productPiece: Int,
+    @ColumnInfo(name = "product_quantity")
+    val productQuantity: Int,
 
     @ColumnInfo(name = "shop_name")
     val shopName: String,
@@ -25,7 +25,7 @@ data class Product(
     val addDate: String,
 
     @ColumnInfo(name = "purchase_date")
-    val purchaseDate: String = "",
+    var purchaseDate: String = "",
 
     @ColumnInfo(name = "purchased")
     var purchased: Boolean = false,

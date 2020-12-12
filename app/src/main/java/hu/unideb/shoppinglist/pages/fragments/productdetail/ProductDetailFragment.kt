@@ -6,9 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import hu.unideb.shoppinglist.R
 import hu.unideb.shoppinglist.database.AppDatabase
 import hu.unideb.shoppinglist.databinding.FragmentProductDetailBinding
@@ -19,7 +17,7 @@ class ProductDetailFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         val binding: FragmentProductDetailBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_product_detail, container, false)
@@ -30,19 +28,12 @@ class ProductDetailFragment : Fragment() {
         val dataSource = AppDatabase.getInstance(application).productDatabaseDao
         val viewModelFactory = ProductDetailViewModelFactory(arguments.productId, dataSource)
 
-        val productDetailViewModel = ViewModelProvider(this,viewModelFactory).get(ProductDetailViewModel::class.java)
+        val productDetailViewModel =
+            ViewModelProvider(this, viewModelFactory).get(ProductDetailViewModel::class.java)
 
         binding.productDetailViewModel = productDetailViewModel
 
         binding.lifecycleOwner = this
-
-//        productDetailViewModel.navigateToProducts.observe(this, {
-//            if(it == true) {
-//
-//
-////                this.findNavController().navigate(ProductDetailFragmentDirections.)
-//            }
-//        })
 
         return binding.root
     }

@@ -7,10 +7,10 @@
     tools:context=".pages.fragments.about.AboutFragment">
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/aboutFragmentDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Leírás hogy mi ez"
+        android:text="@string/about_fragment_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

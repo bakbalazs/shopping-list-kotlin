@@ -1,6 +1,5 @@
 package hu.unideb.shoppinglist.pages.fragments.productdetail
 
-import androidx.lifecycle.LiveDataScope
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import hu.unideb.shoppinglist.database.dao.ProductDao

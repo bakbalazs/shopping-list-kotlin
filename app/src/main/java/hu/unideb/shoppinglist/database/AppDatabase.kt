@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import hu.unideb.shoppinglist.database.dao.ProductDao
 import hu.unideb.shoppinglist.database.model.Product
 
-@Database(entities = [Product::class], version = 13, exportSchema = false)
+@Database(entities = [Product::class], version = 14, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract val productDatabaseDao: ProductDao
