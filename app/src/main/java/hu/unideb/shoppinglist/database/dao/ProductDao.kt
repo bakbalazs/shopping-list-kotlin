@@ -24,4 +24,7 @@ interface ProductDao {
 
     @Query("SELECT * FROM product where user_id = :userId AND purchased = 1 ")
     fun getPurchasedProduct(userId: String): LiveData<List<Product>>
+
+    @Query("SELECT * FROM product where user_id = :userId AND purchased = 0 ")
+    fun getUnPurchasedProduct(userId: String): LiveData<List<Product>>
 }

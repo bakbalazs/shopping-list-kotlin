@@ -9,6 +9,8 @@ class HomeViewModel(dataSource: ProductDao, userId: String, userEmail: String) :
 
     val products = database.getAllProductsByUserId(userId)
     val purchasedProducts = database.getPurchasedProduct(userId)
+    val unPurchasedProducts = database.getUnPurchasedProduct(userId)
+
 
     val email = userEmail
 }

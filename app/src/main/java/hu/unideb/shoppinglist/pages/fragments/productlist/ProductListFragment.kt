@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -16,6 +17,7 @@ import hu.unideb.shoppinglist.database.AppDatabase
 import hu.unideb.shoppinglist.database.model.Product
 import hu.unideb.shoppinglist.databinding.FragmentProductListBinding
 import hu.unideb.shoppinglist.utils.BaseFragment
+import kotlinx.android.synthetic.main.activity_registration.view.*
 import kotlinx.android.synthetic.main.create_product_dialog.*
 import kotlinx.android.synthetic.main.create_product_dialog.view.*
 import kotlinx.android.synthetic.main.fragment_product_list.*
@@ -98,16 +100,32 @@ class ProductListFragment : BaseFragment() {
 
             val mAlertDialog = mBuilder.show()
             mDialogView.create_button.setOnClickListener {
-                mAlertDialog.dismiss()
-                val product = Product(
-                    id = Timestamp(System.currentTimeMillis()).time,
-                    productName = mDialogView.name.text.toString(),
-                    productQuantity = mDialogView.piece.text.toString().toInt(),
-                    shopName = mDialogView.shop_name.text.toString(),
-                    addDate = currentDateAndTime,
-                    userId = userId
-                )
-                productListViewModel.insertData(product)
+
+
+                if (mDialogView.name.text.toString().isEmpty() || mDialogView.piece.text.toString()
+                        .isEmpty() || mDialogView.shop_name.text.toString().isEmpty()
+                ) {
+                    mDialogView.create_product_error.text =
+                        getString(R.string.register_error_all_field)
+
+                } else {
+                    mAlertDialog.dismiss()
+                    val product = Product(
+                        id = Timestamp(System.currentTimeMillis()).time,
+                        productName = mDialogView.name.text.toString(),
+                        productQuantity = mDialogView.piece.text.toString().toInt(),
+                        shopName = mDialogView.shop_name.text.toString(),
+                        addDate = currentDateAndTime,
+                        userId = userId
+                    )
+                    productListViewModel.insertData(product)
+                    Toast.makeText(
+                        context,
+                        getText(R.string.product_create_success),
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+
             }
 
         }

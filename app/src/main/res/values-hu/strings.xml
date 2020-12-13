@@ -7,12 +7,17 @@
     <string name="login_button">Belépés</string>
     <string name="login_not_registered">Nincs még fiókod?</string>
     <string name="login_register_button">Regisztráció</string>
+    <string name="login_error_fields">E-mail és jelszó megadása kötelező</string>
 
     <string name="registration_page_title">Regisztráció</string>
     <string name="registration_personal_name_hint">Név</string>
     <string name="registration_email_hint">E-mail</string>
     <string name="registration_password_hint">Jelszó</string>
     <string name="register_button">Regisztrálás</string>
+    <string name="register_error_all_field">Minden mező kitöltése kötelező</string>
+    <string name="registration_success">Sikeres regisztráció, jelentkezz be</string>
+
+    <string name="reg_and_login_error_email_format">Az e-mail formátuma nem megfelő</string>
 
     <string name="nav_drawer_header_welcome">Üdv,&#160;</string>
 
@@ -24,25 +29,28 @@
     <string name="products_list_header_title">Termékek</string>
 
     <string name="fragment_product_list_button">Új termék hozzáadása</string>
+    <string name="fragment_product_list_purchased_checkbox">Megvásárolva</string>
 
     <string name="create_product_dialog_title">Termék hozzáadása</string>
     <string name="create_product_dialog_name">Név</string>
-    <string name="create_product_dialog_piece">Piece</string>
+    <string name="create_product_dialog_piece">Darab</string>
     <string name="create_product_dialog_shop_name">Bolt neve</string>
     <string name="create_product_dialog_product_create_button">Hozzáadás</string>
 
     <string name="product_detail_fragment_title">Termék részletek</string>
     <string name="product_detail_fragment_product_name">Név</string>
-    <string name="product_detail_fragment_product_piece">Piece</string>
+    <string name="product_detail_fragment_product_piece">Darab</string>
     <string name="product_detail_fragment_product_shop_name">Bolt neve</string>
     <string name="product_detail_fragment_product_add_date">Hozzáadás dátuma</string>
     <string name="product_detail_fragment_product_purchase_date">Vásárlás dátuma</string>
+    <string name="product_create_success">Termék hozzáadva</string>
 
     <string name="home_fragment_title">Információk</string>
     <string name="home_fragment_logged_in_user">Belépett felhasználó e-mail</string>
-    <string name="home_fragment_products">Felhazsnáló termékeinek a száma:&#160;</string>
-    <string name="home_fragment_purchased_products">Felhasználó megvásárolt termékeinek a száma:&#160;</string>
+    <string name="home_fragment_products">Összes termék a bevásárlólistán:&#160;</string>
+    <string name="home_fragment_purchased_products">Megvásárolt termékek:&#160;</string>
+    <string name="home_fragment_un_purchased_products">Megvásárolandó termékek:&#160;</string>
 
-    <string name="about_fragment_description"></string>
+    <string name="about_fragment_description">Ez az alkalmazás a Debreceni Egyetem Informatikai Karán oktatott Mobilalkalmazás–fejlesztés (ILBPM9937–17) tárgyhoz kapcsolódó beadandó feladat. Az alkalmazást Bak Balázs (OS6XQY) készítette Kotlin programnyelvben jegyszerzés céljából.\n Az alkalmazás egy egyszerű bevásárló listaként funkcionál, megvásárolandó termékek felvételét teszi lehetővé - megjelölve a termékek mennyiségét és beszerzési helyét. A felhasználó a vásárlást követően kipipálhatja a megvásárolt termékeket. </string>
 
 </resources>

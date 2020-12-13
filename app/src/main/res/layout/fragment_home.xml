@@ -40,6 +40,8 @@
             android:layout_marginTop="88dp"
             android:text="@string/home_fragment_products"
             android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/products_number_value"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragment_title" />
 
@@ -48,11 +50,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="88dp"
+            android:layout_marginEnd="72dp"
+            android:layout_marginRight="72dp"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.619"
-            app:layout_constraintStart_toEndOf="@+id/products_number_label"
             app:layout_constraintTop_toBottomOf="@+id/fragment_title"
             app:productsNumber="@{homeFragmentViewModel.products}"
             tools:text="22" />
@@ -61,11 +63,13 @@
             android:id="@+id/purchased_products_number_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="36dp"
             android:text="@string/home_fragment_purchased_products"
             android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/purchased_products_number_value"
+            app:layout_constraintHorizontal_bias="0.317"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/products_number_label" />
 
@@ -73,14 +77,42 @@
             android:id="@+id/purchased_products_number_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="72dp"
+            android:layout_marginRight="72dp"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.353"
-            app:layout_constraintStart_toEndOf="@+id/purchased_products_number_label"
             app:layout_constraintTop_toBottomOf="@+id/products_number_value"
             app:productsNumber="@{homeFragmentViewModel.purchasedProducts}"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/un_purchased_products_number_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="56dp"
+            android:layout_marginLeft="56dp"
+            android:layout_marginTop="28dp"
+            android:text="@string/home_fragment_un_purchased_products"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/un_purchased_products_number_value"
+            app:layout_constraintHorizontal_bias="0.023"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/purchased_products_number_label" />
+
+        <TextView
+            android:id="@+id/un_purchased_products_number_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="72dp"
+            android:layout_marginRight="72dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/purchased_products_number_value"
+            app:productsNumber="@{homeFragmentViewModel.unPurchasedProducts}"
             tools:text="10" />
 
         <TextView

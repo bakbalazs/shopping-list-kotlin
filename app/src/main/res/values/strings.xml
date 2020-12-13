@@ -7,12 +7,17 @@
     <string name="login_button">Login</string>
     <string name="login_not_registered">Do not have an account yet?</string>
     <string name="login_register_button">Register</string>
+    <string name="login_error_fields">Please enter a valid e-mail address and password</string>
 
     <string name="registration_page_title">Registration</string>
     <string name="registration_personal_name_hint">Name</string>
     <string name="registration_email_hint">E-mail</string>
     <string name="registration_password_hint">Password</string>
-    <string name="register_button">Registration</string>
+    <string name="register_button">Register</string>
+    <string name="register_error_all_field">All fields are required</string>
+    <string name="registration_success">Success registration, please login</string>
+
+    <string name="reg_and_login_error_email_format">E-mail format is invalid</string>
 
     <string name="nav_drawer_header_welcome">Welcome,&#160;</string>
 
@@ -24,25 +29,28 @@
     <string name="products_list_header_title">Products</string>
 
     <string name="fragment_product_list_button">Add New Product</string>
+    <string name="fragment_product_list_purchased_checkbox">Purchased</string>
 
     <string name="create_product_dialog_title">Add Product</string>
     <string name="create_product_dialog_name">Name</string>
-    <string name="create_product_dialog_piece">Piece</string>
+    <string name="create_product_dialog_piece">Quantity</string>
     <string name="create_product_dialog_shop_name">Shop name</string>
     <string name="create_product_dialog_product_create_button">Add</string>
+    <string name="product_create_success">Product created</string>
 
     <string name="product_detail_fragment_title">Product Details</string>
     <string name="product_detail_fragment_product_name">Name</string>
-    <string name="product_detail_fragment_product_piece">Piece</string>
+    <string name="product_detail_fragment_product_piece">Quantity</string>
     <string name="product_detail_fragment_product_shop_name">Shop name</string>
     <string name="product_detail_fragment_product_add_date">Added Date</string>
     <string name="product_detail_fragment_product_purchase_date">Purchase Date</string>
-    
+
     <string name="home_fragment_title">Informations</string>
     <string name="home_fragment_logged_in_user">Logged User Email</string>
-    <string name="home_fragment_products">User products number:&#160;</string>
-    <string name="home_fragment_purchased_products">User purchased products number:&#160;</string>
+    <string name="home_fragment_products">All products on list:&#160;</string>
+    <string name="home_fragment_purchased_products">Purchased:&#160;</string>
+    <string name="home_fragment_un_purchased_products">Products to buy:&#160;</string>
 
-    <string name="about_fragment_description"></string>
+    <string name="about_fragment_description">This application was created as a task for the subject "Mobile Application Development" (ILBPM9937–17) thaught by University of Debrecen Faculty of Informatics. This application was developed by Balazs Bak (OS6XQY) using Kotlin.\nThe app is a simple shopping list for registered users. Users can add products they intend to buy with quantity and store informations. After buying the products users can mark them bought. </string>
 
 </resources>
