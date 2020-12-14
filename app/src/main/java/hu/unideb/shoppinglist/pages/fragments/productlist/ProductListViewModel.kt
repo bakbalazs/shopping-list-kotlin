@@ -1,6 +1,7 @@
 package hu.unideb.shoppinglist.pages.fragments.productlist
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import hu.unideb.shoppinglist.database.dao.ProductDao
@@ -14,12 +15,16 @@ class ProductListViewModel(dataSource: ProductDao, userId: String) :
 
     var database = dataSource
 
-    val products = database.getAllProductsByUserId(userId)
+    private val products = database.getAllProductsByUserId(userId)
 
     fun insertData(product: Product) {
         viewModelScope.launch {
             database.insert(product)
         }
+    }
+
+    val productsTransform = Transformations.map(products) {
+        products -> products
     }
 
     private val _navigateToProductDetail = MutableLiveData<Long>()

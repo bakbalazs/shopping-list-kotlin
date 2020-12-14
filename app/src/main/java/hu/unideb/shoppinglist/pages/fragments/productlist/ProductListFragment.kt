@@ -68,7 +68,7 @@ class ProductListFragment : BaseFragment() {
             binding.productList.addItemDecoration(this)
         }
 
-        productListViewModel.products.observe(viewLifecycleOwner, {
+        productListViewModel.productsTransform.observe(viewLifecycleOwner, {
             it?.let {
                 adapter.addHeaderAndSubmitList(it)
             }
